@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FindMyPhoto</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" >
+  </head>
+  <body>
+   <h1>Welcome to FindMyPhoto!</h1>
+    <div class="container">
+      <div class="row">
+        <div class='col'>
+
+          <hr>
+
+          <form action="/" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+              <label>Select an image and upload</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name="image" id="image">
+                <label class="custom-file-label" for="image"></label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Upload</button>
+
+          </form>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+              $('a#test').bind('click', function() {
+                $.getJSON('/find_my_photo',
+                    function(data) {
+                  //do nothing
+                });
+                return false;
+              });
+            });
+    </script>
+    <div class='container'>
+        <h3>Click below to find photo:</h3>
+            <form>
+                <a href=# id=test><button class='btn btn-default'>Find My Photo!</button></a>
+            </form>
+
+    </div>
+  </body>
+</html>
